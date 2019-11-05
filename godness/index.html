@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>我爱杜嘉利</title>
+	<style>
+		li {
+			width: 128px;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+			position: absolute;
+			bottom: 0;
+		}
+
+		li img {
+			height: 300px;
+			width: 150px;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+			vertical-align: middle;
+			object-fit: cover;
+		}
+
+		video {
+			width: 128px;
+		}
+
+		#stage {
+			width: 900px;
+			min-height: 100px;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 100px 50px;
+			perspective: 1200px;
+			position: relative;
+		}
+
+		#container {
+			margin-top: 200px;
+			width: 128px;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+			height: 100px;
+			margin-left: -64px;
+			transition: transform 1s;
+			transform-style: preserve-3d;
+			position: absolute;
+			left: 50%;
+			transform: rotateX(-5deg);
+		}
+
+		li:nth-child(0) {
+			transform: rotateY(0deg) translateZ(400px);
+		}
+
+		li:nth-child(1) {
+			transform: rotateY(40deg) translateZ(400px);
+		}
+
+		li:nth-child(2) {
+			transform: rotateY(80deg) translateZ(400px);
+		}
+
+		li:nth-child(3) {
+			transform: rotateY(120deg) translateZ(400px);
+		}
+
+		li:nth-child(4) {
+			transform: rotateY(160deg) translateZ(400px);
+		}
+
+		li:nth-child(5) {
+			transform: rotateY(200deg) translateZ(400px);
+		}
+
+		li:nth-child(6) {
+			transform: rotateY(240deg) translateZ(400px);
+		}
+
+		li:nth-child(7) {
+			transform: rotateY(280deg) translateZ(400px);
+		}
+
+		li:nth-child(8) {
+			transform: rotateY(320deg) translateZ(400px);
+		}
+
+		li:nth-child(9) {
+			transform: rotateY(360deg) translateZ(400px);
+		}
+	</style>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		// alert( 64 / Math.tan(20 / 180 * Math.PI));
+		var transform = function (element, value, key) {
+			key = key || "Transform";
+			["Moz", "O", "Ms", "Webkit", ""].forEach(function (prefix) {
+				element.style[prefix + key] = value;
+			});
+
+			return element;
+		}
+
+		$(function () {
+			var deg = -40,
+				i = 1;
+			$("#container").click(function () {
+				transform($(this)[0], "rotateX(-5deg) rotateY(" + (deg * i++) + "deg)")
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div id="stage">
+		<ul id="container">
+			<li><img src="photos/1.jpeg"></li>
+			<li><img src="photos/2.jpeg"></li>
+			<li><img src="photos/3.jpeg"></li>
+			<li><img src="photos/4.jpeg"></li>
+			<li><img src="photos/5.jpeg"></li>
+			<li><img src="photos/6.jpeg"></li>
+			<li><img src="photos/7.jpeg"></li>
+			<li><img src="photos/8.jpeg"></li>
+			<li><img src="photos/9.jpeg"></li>
+		</ul>
+	</div>
+
+	<!-- <video controls autoplay>
+		<source type=video/mp4 src="photos/PostCreditsScene.mp4"/>
+	</video> -->
+</body>
+
+<script>
+</script>
+
+</html>
